@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
+
+// Server routes... need to be above webpack routes
+// app.get('/landing', (req, res) => res.send('./landing.html'));
 
 // Only use webpack if in development not production
 if (process.env.NODE_ENV !== 'production') {
@@ -21,4 +25,4 @@ if (process.env.NODE_ENV !== 'production') {
   })
 }
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(port, () => console.log(`Listening on port ${port}`));
